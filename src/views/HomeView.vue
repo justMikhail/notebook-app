@@ -22,6 +22,7 @@
       <input
         v-model='counterData.title'
         type='text'
+        v-autofocus
       />
     </div>
   </div>
@@ -33,6 +34,7 @@ import {
   computed,
   watch,
 } from 'vue';
+import {vAutofocus} from '@/directives/vAutofocuse';
 
 const appTitle = 'Great Counter App';
 
