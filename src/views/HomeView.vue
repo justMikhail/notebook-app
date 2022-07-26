@@ -28,13 +28,21 @@
 </template>
 
 <script setup>
-import {reactive, computed} from 'vue';
+import {
+  reactive,
+  computed,
+  watch,
+} from 'vue';
 
 const appTitle = 'Great Counter App';
 
 const counterData = reactive({
   count: 0,
   title: 'My Counter'
+});
+
+watch(() => counterData.count, (newCount) => {
+  console.log('newCount: ', newCount);
 });
 
 const oddOrEven = computed(() => {
@@ -49,6 +57,7 @@ const increaseCounter = (amount) => {
 const decreaseCounter = (amount) => {
   counterData.count -= amount;
 };
+
 </script>
 
 <style>
