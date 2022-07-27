@@ -3,19 +3,12 @@
     <h1>Posts</h1>
 
     <ul>
-      <li>
-        <RouterLink to='/PostDetail/id1'>
-          Post #1
-        </RouterLink>
-      </li>
-      <li>
-        <RouterLink to='/PostDetail/id2'>
-          Post #2
-        </RouterLink>
-      </li>
-      <li>
-        <RouterLink to='/PostDetail/id3'>
-          Post #3
+      <li
+        v-for='post in postsList'
+        :key='post.id'
+      >
+        <RouterLink :to="`/post/${post.id}`">
+          {{post.title}}
         </RouterLink>
       </li>
     </ul>
@@ -25,5 +18,21 @@
 </template>
 
 <script setup>
+import {ref} from 'vue';
 import {vAutofocus} from '@/directives/vAutofocuse';
+
+const postsList = ref([
+  {
+    id: '1',
+    title: 'Post 1',
+  },
+  {
+    id: '2',
+    title: 'Post 2',
+  },
+  {
+    id: '3',
+    title: 'Post 3',
+  }
+])
 </script>

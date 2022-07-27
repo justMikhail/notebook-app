@@ -10,13 +10,18 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/modals',
+      name: 'modals',
+      component: () => import('../pages/ModalsPage.vue')
+    },
+    {
       path: '/posts',
       name: 'posts',
       component: () => import('../pages/PostsPage.vue')
     },
     {
-      path: '/postDetail/:id',
-      name: 'postDetail',
+      path: '/post/:id',
+      name: 'post',
       component: () => import('../pages/PostDetailPage.vue')
     }
   ]

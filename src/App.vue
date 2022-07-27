@@ -1,12 +1,13 @@
 <template>
   <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/Posts">Posts</RouterLink>
+    <RouterLink to='/'>Home</RouterLink>
+    <RouterLink to='/posts'>Posts</RouterLink>
+    <RouterLink to='/modals'>Modals</RouterLink>
   </nav>
 
   <router-view v-slot='{ Component }'>
     <keep-alive>
-      <component :is='Component'/>
+      <component :is='Component' />
     </keep-alive>
   </router-view>
 </template>

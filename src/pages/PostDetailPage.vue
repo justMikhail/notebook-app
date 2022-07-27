@@ -42,7 +42,7 @@
 
   const goToFirstPost = () => {
     router.push({
-      name: 'postDetail',
+      name: 'post',
       params: {
         id: 'id1'
       }
