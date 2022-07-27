@@ -1,5 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../pages/HomePage.vue'
+import {createRouter, createWebHistory} from 'vue-router';
+import HomePage from '../pages/HomePage.vue';
+import PostsPage from '../pages/PostsPage.vue';
+import PostDetailsPage from '../pages/PostDetailPage.vue';
+import ModalsPage from '../pages/ModalsPage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,24 +10,24 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/modals',
-      name: 'modals',
-      component: () => import('../pages/ModalsPage.vue')
+      component: HomePage
     },
     {
       path: '/posts',
       name: 'posts',
-      component: () => import('../pages/PostsPage.vue')
+      component: PostsPage
     },
     {
       path: '/post/:id',
       name: 'post',
-      component: () => import('../pages/PostDetailPage.vue')
+      component: PostDetailsPage
+    },
+    {
+      path: '/modals',
+      name: 'modals',
+      component: ModalsPage
     }
   ]
-})
+});
 
-export default router
+export default router;

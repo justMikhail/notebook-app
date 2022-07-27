@@ -1,4 +1,8 @@
 <template>
+  <div>
+    {{userData.name}} // {{userData.email}}
+  </div>
+
   <nav>
     <RouterLink to='/'>Home</RouterLink>
     <RouterLink to='/posts'>Posts</RouterLink>
@@ -11,6 +15,16 @@
     </keep-alive>
   </router-view>
 </template>
+
+<script setup>
+import {reactive, provide} from 'vue';
+
+const userData = reactive({
+  name: 'Mikhail',
+  email: 'example@gmail.com',
+
+})
+</script>
 
 <style>
 @import "@/assets/base.css";
