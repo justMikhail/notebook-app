@@ -1,17 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import ViewNotes from '@/views/ViewNotes.vue'
-import ViewStats from '@/views/ViewStats.vue'
+import MemoPage from '@/views/NotesPage.vue'
+import StatsPage from '@/views/StatsPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'notes',
-    component: ViewNotes
+    component: MemoPage
   },
   {
     path: '/stats',
     name: 'stats',
-    component: ViewStats
+    component: StatsPage
   }
 ]
 

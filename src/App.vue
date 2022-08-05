@@ -1,6 +1,5 @@
 <template>
   <AppNavBar/>
-
   <div class="container is-max-desktop px-2 py-4">
     <RouterView/>
   </div>
@@ -12,7 +11,6 @@ import AppNavBar from '@/components/layout/AppNavBar.vue';
 export default {
   components: {AppNavBar}
 }
-
 </script>
 
 <style>
