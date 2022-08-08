@@ -1,6 +1,7 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import MemoPage from '@/views/NotesPage.vue'
-import StatsPage from '@/views/StatsPage.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import MemoPage from '@/views/NotesPage.vue';
+import StatsPage from '@/views/StatsPage.vue';
+import EditorPage from '@/views/EditorPage.vue';
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/stats',
     name: 'stats',
     component: StatsPage
+  },
+  {
+    path: '/editNote/:id',
+    name: 'edit-note',
+    component: EditorPage
   }
 ]
 
@@ -20,4 +26,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router;

@@ -6,9 +6,11 @@
   >
     <div class="container is-max-desktop px-2">
       <div class="navbar-brand">
-        <h1 class="navbar-item is-family-monospace">
-          MemoBook
-        </h1>
+        <RouterLink to="/">
+          <h1 class="navbar-item is-family-monospace">
+            NoteBook
+          </h1>
+        </RouterLink>
 
         <a
           class="navbar-burger"
@@ -35,6 +37,7 @@
             class="navbar-item"
             active-class="is-active"
             to="/"
+            @click="isMobileNavOpened = false"
           >
             Notes
           </RouterLink>
@@ -43,6 +46,7 @@
             class="navbar-item"
             active-class="is-active"
             to="/stats"
+            @click="isMobileNavOpened = false"
           >
             Stats
           </RouterLink>

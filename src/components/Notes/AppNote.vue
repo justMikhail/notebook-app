@@ -4,20 +4,20 @@
   >
     <div class="card-content">
       <div class="content">
-        {{memoData.text}}
-
+        {{noteData.text}}
         <div class="has-text-right has-text-grey-light mt-2">
-          <small>{{memoLength}}</small>
+          <small>{{noteTextLength}}</small>
         </div>
       </div>
     </div>
     <footer class="card-footer">
-      <a
+      <RouterLink
         class="card-footer-item"
-        href="#"
+        :to="`/editNote/${noteData.id}`"
         @click.prevent="handleEditClick"
-      >Edit
-      </a>
+      >
+        Edit
+      </RouterLink>
       <a
         class="card-footer-item"
         href="#"
@@ -33,26 +33,26 @@
 import {computed} from 'vue';
 
 const props = defineProps({
-  memoData: {
+  noteData: {
     type: Object,
     required: true,
   }
 })
 
-const memoLength = computed(() => {
-  const length = props.memoData.text.length
+const noteTextLength = computed(() => {
+  const length = props.noteData.text.length
   const description = length > 1
     ? 'characters'
     : 'character'
 
-  return `${props.memoData.text.length} ${description}`
+  return `${props.noteData.text.length} ${description}`
 })
 
 const emit = defineEmits(['handleDeleteClick'])
 
 const handleDeleteClick = () => {
   console.log('=== handleDeleteClick ===')
-  emit('handleDeleteClick', props.memoData.id)
+  emit('handleDeleteClick', props.noteData.id)
 }
 
 const handleEditClick = () => {

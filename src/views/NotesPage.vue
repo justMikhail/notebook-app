@@ -1,57 +1,47 @@
 <template>
   <div class="notes">
-    <div class="card has-background-success-dark p-4 mb-4">
-      <div class="field">
-        <div class="control">
-          <textarea
-            class="textarea"
-            placeholder="Add a new memo"
-            v-model="newNoteText"
-            ref="newNoteRef"
-          />
-        </div>
-      </div>
+    <AppEditor
+      v-model="newNoteText"
+      ref="editorTextarea"
+      placeholderText="Type a new note..."
+    >
+      <template #buttons>
+        <button
+          class="button is-link has-background-success"
+          :disabled="!newNoteText"
+          @click="addNote"
+        >
+          Add New Note
+        </button>
+      </template>
+    </AppEditor>
 
-      <div class="field is-grouped is-grouped-right">
-        <div class="control">
-          <button
-            class="button is-link has-background-success"
-            :disabled="!newNoteText"
-            @click="addNote"
-          >
-            Add New Memo
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <AppMemo
-      v-for="memo in storeNotes.notesList"
-      :key="memo.id"
-      :memoData="memo"
-      @handleDeleteClick="deleteMemoClick"
+    <AppNote
+      v-for="note in notesStore.notesList"
+      :key="note.id"
+      :noteData="note"
+      @handleDeleteClick="deleteNote"
     />
   </div>
 </template>
 
-
 <script setup>
 import {ref} from 'vue';
-import AppMemo from '@/components/Notes/AppNote.vue';
+import AppNote from '@/components/Notes/AppNote.vue';
+import AppEditor from '@/components/Notes/AppEditor.vue';
 import {useNotesStore} from '@/stores/storeNotes';
 
 const newNoteText = ref('');
-const newNoteRef = ref(null);
-
-const storeNotes = useNotesStore();
+const notesStore = useNotesStore();
+const editorTextarea = ref(null);
 
 const addNote = () => {
-  storeNotes.addNewNote()
+  notesStore.addNewNote(newNoteText.value)
   newNoteText.value = '';
-  newNoteRef.value.focus();
+  editorTextarea.value.focusTextarea()
 }
 
-const deleteMemoClick = (id) => {
-  notesList.value = notesList.value.filter(memo => {return memo.id !== id })
+const deleteNote = (id) => {
+  notesStore.deleteNote(id)
 }
 </script>
