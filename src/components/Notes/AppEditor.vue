@@ -18,6 +18,7 @@
             :placeholder="placeholderText"
             v-model="modelValue"
             v-autofocus
+            maxlength="50"
             @input="$emit('update:modelValue', modelValue)"
           />
       </div>

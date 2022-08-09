@@ -30,6 +30,7 @@ import {ref} from 'vue';
 import AppNote from '@/components/Notes/AppNote.vue';
 import AppEditor from '@/components/Notes/AppEditor.vue';
 import {useNotesStore} from '@/stores/storeNotes';
+import {useWatchCharacters} from '@/hooks/useWathCharacters';
 
 const newNoteText = ref('');
 const notesStore = useNotesStore();
@@ -44,4 +45,7 @@ const addNote = () => {
 const deleteNote = (id) => {
   notesStore.deleteNote(id)
 }
+
+useWatchCharacters(newNoteText)
+
 </script>
