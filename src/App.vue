@@ -5,12 +5,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import AppNavBar from '@/components/layout/AppNavBar.vue';
+import {useNotesStore} from './stores/storeNotes';
+import {onMounted} from 'vue';
 
-export default {
-  components: {AppNavBar}
-}
+const notesStore = useNotesStore();
+
+onMounted(() => {
+  notesStore.getNotesList()
+})
+
 </script>
 
 <style>

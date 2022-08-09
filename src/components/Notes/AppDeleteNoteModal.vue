@@ -35,7 +35,7 @@
 
 <script setup>
 import {ref, onMounted, onUnmounted} from 'vue';
-import { onClickOutside } from '@vueuse/core';
+import {onClickOutside} from '@vueuse/core';
 import {useNotesStore} from '@/stores/storeNotes';
 
 const props = defineProps({
