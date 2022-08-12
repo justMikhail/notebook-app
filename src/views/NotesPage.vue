@@ -16,12 +16,27 @@
       </template>
     </AppEditor>
 
-    <AppNote
-      v-for="note in notesStore.notesList"
-      :key="note.id"
-      :noteData="note"
-      @handleDeleteClick="deleteNote"
+    <progress
+      class="progress is-large is-success"
+      max="100"
+      v-if="notesStore.isLoading"
     />
+
+    <template v-else>
+      <AppNote
+        v-for="note in notesStore.notesList"
+        :key="note.id"
+        :noteData="note"
+        @handleDeleteClick="deleteNote"
+      />
+
+      <div
+        class="is-size-4 has-text-centered has-text-grey-light is-family-monospace"
+        v-if="!notesStore.notesList.length"
+      >
+        No notes here yet...
+      </div>
+    </template>
   </div>
 </template>
 

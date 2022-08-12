@@ -9,7 +9,7 @@
     >
       <template #buttons>
         <button
-          @click="$router.push('/')"
+          @click="$router.back()"
           class="button is-link is-light mr-2"
         >
           Cancel
