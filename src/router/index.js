@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import {useAuthStore} from '@/stores/storeAuth';
 import MemoPage from '@/views/NotesPage.vue';
 import StatsPage from '@/views/StatsPage.vue';
 import EditorPage from '@/views/EditorPage.vue';
@@ -30,6 +31,18 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+// navigation guards
+router.beforeEach(async (to, from) => {
+  const authStore = useAuthStore();
+  console.log('to: ', to)
+  if (!authStore.user.id && to.name !== 'auth') {
+    return { name: 'auth' };
+  }
+  if (authStore.user.id && to.name === 'auth') {
+    return false;
+  }
 })
 
 export default router;
