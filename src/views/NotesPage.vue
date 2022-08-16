@@ -45,22 +45,23 @@ import {ref} from 'vue';
 import AppNote from '@/components/Notes/AppNote.vue';
 import AppEditor from '@/components/Notes/AppEditor.vue';
 import {useNotesStore} from '@/stores/storeNotes';
+import {useAuthStore} from '@/stores/storeAuth';
 import {useWatchCharacters} from '@/hooks/useWathCharacters';
 
-const newNoteText = ref('');
 const notesStore = useNotesStore();
+const newNoteText = ref('');
+const authStore = useAuthStore();
 const editorTextarea = ref(null);
 
 const addNote = () => {
   notesStore.addNewNote(newNoteText.value)
   newNoteText.value = '';
-  editorTextarea.value.focusTextarea()
+  editorTextarea.value.focusTextarea();
 }
 
 const deleteNote = (id) => {
   notesStore.deleteNote(id)
 }
 
-useWatchCharacters(newNoteText)
-
+useWatchCharacters(newNoteText);
 </script>

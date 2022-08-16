@@ -38,7 +38,8 @@
 <script setup>
 import {computed, reactive} from 'vue';
 import {useDateFormat} from '@vueuse/core';
-import AppDeleteNoteModal from '@/components/Notes/AppDeleteNoteModal.vue'
+import AppDeleteNoteModal from '@/components/Notes/AppDeleteNoteModal.vue';
+import {useNotesStore} from '@/stores/storeNotes';
 
 const props = defineProps({
   noteData: {

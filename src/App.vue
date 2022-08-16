@@ -7,13 +7,13 @@
 
 <script setup>
 import AppNavBar from '@/components/layout/AppNavBar.vue';
-import {useNotesStore} from './stores/storeNotes';
+import {useAuthStore} from './stores/storeAuth';
 import {onMounted} from 'vue';
 
-const notesStore = useNotesStore();
+const authStore = useAuthStore();
 
 onMounted(() => {
-  notesStore.getNotesList()
+  authStore.init()
 })
 
 </script>

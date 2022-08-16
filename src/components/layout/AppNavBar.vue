@@ -7,7 +7,7 @@
     <div class="container is-max-desktop px-2">
       <div class="navbar-brand">
         <RouterLink to="/">
-          <h1 class="navbar-item is-family-monospace">
+          <h1 class="navbar-item title is-family-monospace">
             NoteBook
           </h1>
         </RouterLink>
@@ -37,8 +37,10 @@
         <div class="navbar-start">
           <button
             class="button is-small is-info mt-3 ml-3"
+            v-if="authStore.user.id"
+            @click="handleLogout"
           >
-            Logout
+            Logout {{ authStore.user.email }}
           </button>
         </div>
 
@@ -69,15 +71,23 @@
 <script setup>
 import {ref} from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import {useAuthStore} from '@/stores/storeAuth';
 
+const authStore = useAuthStore();
 const isMobileNavOpened = ref(false);
 const navBarMenuRef = ref(null);
 const navBarBurgerRef = ref(null);
+
 onClickOutside(navBarMenuRef, () => {
   isMobileNavOpened.value = false;
 }, {
   ignore: [navBarBurgerRef]
 });
+
+const handleLogout = () => {
+  authStore.logoutUser();
+  isMobileNavOpened.value = false;
+}
 </script>
 
 <style>
