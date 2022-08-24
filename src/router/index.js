@@ -30,13 +30,12 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 })
 
 // navigation guards
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to) => {
   const authStore = useAuthStore();
-  console.log('to: ', to)
   if (!authStore.user.id && to.name !== 'auth') {
     return { name: 'auth' };
   }

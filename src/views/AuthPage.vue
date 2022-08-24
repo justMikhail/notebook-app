@@ -31,7 +31,7 @@
                 class="input"
                 type="email"
                 placeholder="example@mail.com"
-                autocomplete="off"
+                autocomplete="nope"
                 v-model="credentials.email"
               >
             </div>
@@ -44,7 +44,7 @@
                 class="input"
                 type="password"
                 placeholder="..."
-                autocomplete="off"
+                autocomplete="new-password"
                 v-model="credentials.password"
               >
             </div>

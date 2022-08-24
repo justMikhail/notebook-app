@@ -51,6 +51,8 @@ export const useNotesStore = defineStore('notes', {
         });
         this.notesList = updatedNotesList;
         this.isLoading = false;
+      }, (error) => {
+        console.log('error: ', error.message);
       });
     },
 
