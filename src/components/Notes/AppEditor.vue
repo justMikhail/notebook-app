@@ -14,12 +14,12 @@
       <div class="control">
           <textarea
             class="textarea"
+            :value="modelValue"
             ref="textareaRef"
             :placeholder="placeholderText"
-            v-model="modelValue"
             v-autofocus
             maxlength="50"
-            @input="$emit('update:modelValue', modelValue)"
+            @input="$emit('update:modelValue', $event.target.value)"
           />
       </div>
     </div>
