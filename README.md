@@ -1,14 +1,17 @@
-# vue-composition-api-noteballs
+# [Pet project](https://github.com/justMikhail/what-to-watch-app)
 
-This template should help get you started developing with Vue 3 in Vite.
+![Flutter](https://img.shields.io/badge/status-release-<COLOR>)
 
-## Recommended IDE Setup
+## **About project:**
+Simple notebook app. You can register and login. Create new, edit and delete notes.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+Project Demo: [link](https://notebook-89097.web.app/)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## **Stack**
++ Vue3 (Composition API)
++ Pinia
++ Firebase
++ Vite a builder
 
 ## Project Setup
 
